@@ -15,5 +15,14 @@
             this.status = TaskStatus.Todo;
             createdAt = DateTime.UtcNow;
         }
+
+        public TaskEntity(int id, string description, TaskStatus status, DateTime createdAt, DateTime? updatedAt)
+        {
+            this.id = id;
+            this.description = description;
+            this.status = status;
+            this.createdAt = createdAt;
+            this.updatedAt = updatedAt;
+        }
     }
 }
