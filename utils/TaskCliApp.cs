@@ -9,6 +9,22 @@ namespace TaskCli.utils
     {
         private readonly ITaskRepository repository = repository;
 
+        public void Help()
+        {
+            string[] commands = { "add [description]", "update [id] [newDescription]", "mark-in-progress [id]", "mark-done [id]", "list", "list done", "list todo", "list in-progress", "delete [id]" };
+            string[] commandsDetails = { "Adds a new task", "Updates a task description using it's id", "Marks a task as in-progress using it's id", "Marks a task as done using it's id", "List all tasks", "List all tasks marked as done", "List all tasks marked as todo", "List all tasks marked as in-progress", "Deletes a task using it's id" };
+
+            Console.WriteLine("Task CLI (1.0)\n");
+
+            Console.WriteLine("Usage: taskcli [command] [argument #1] [argument #2]\n");
+            
+            Console.WriteLine("commands:\n");
+            for (int i = 0; i < commands.Length; i++)
+            {
+                Console.WriteLine($"{commands[i].PadRight(35, ' ')}\t{commandsDetails[i]}");
+            }
+        }
+
         public void Add(string[] args)
         {
             try

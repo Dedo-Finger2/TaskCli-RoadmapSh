@@ -20,6 +20,7 @@ namespace TaskCli
 
                 switch(command)
                 {
+                    case "help": app.Help(); break;
                     case "add": app.Add(args); break;
                     case "update": app.Update(args); break;
                     case "delete": app.Delete(args); break;
