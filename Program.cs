@@ -9,8 +9,6 @@ namespace TaskCli
         {
             try
             {
-                Console.WriteLine("Hello World!");
-
                 JsonTaskRepositoryImpl repo = new();
 
                 TaskCliApp app = new(repo);
@@ -32,7 +30,7 @@ namespace TaskCli
             }
             catch (IndexOutOfRangeException e)
             {
-                Console.WriteLine("expected a command");
+                
             }
             catch (Exception e)
             {
