@@ -1,5 +1,4 @@
-﻿using TaskCli.entities;
-using TaskCli.repositories;
+﻿using TaskCli.repositories;
 using TaskCli.utils;
 
 namespace TaskCli
