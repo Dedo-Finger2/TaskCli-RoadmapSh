@@ -7,12 +7,12 @@ namespace TaskCli
     {
         static void Main(string[] args)
         {
+            JsonTaskRepositoryImpl repo = new();
+
+            TaskCliApp app = new(repo);
+
             try
             {
-                JsonTaskRepositoryImpl repo = new();
-
-                TaskCliApp app = new(repo);
-
                 string command = args[0];
 
                 switch(command)
@@ -30,7 +30,7 @@ namespace TaskCli
             }
             catch (IndexOutOfRangeException e)
             {
-                
+                app.Help();
             }
             catch (Exception e)
             {
