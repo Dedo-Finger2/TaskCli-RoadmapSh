@@ -27,7 +27,7 @@ namespace TaskCli
                     case "mark-in-progress": app.MarkInProgress(args); break;
                     case "mark-done": app.MarkDone(args); break;
                     case "list": app.List(args); break;
-                    default: Console.WriteLine("command not found");  break;
+                    default: app.Help();  break;
                 }
 
             }
