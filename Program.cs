@@ -12,7 +12,7 @@ namespace TaskCli
             {
                 Console.WriteLine("Hello World!");
 
-                TaskRepositoryImpl repo = new();
+                InMemoryTaskRepositoryImpl repo = new();
 
                 _ = repo.Create("testing 1");
                 _ = repo.Create("testing 2");

@@ -3,7 +3,7 @@ using TaskCli.exceptions;
 
 namespace TaskCli.repositories
 {
-    internal class TaskRepositoryImpl : ITaskRepository
+    internal class InMemoryTaskRepositoryImpl : ITaskRepository
     {
         private List<TaskEntity> database = [];
 
