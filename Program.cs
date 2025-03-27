@@ -12,19 +12,7 @@ namespace TaskCli
             {
                 Console.WriteLine("Hello World!");
 
-                InMemoryTaskRepositoryImpl repo = new();
-
-                _ = repo.Create("testing 1");
-                _ = repo.Create("testing 2");
-                _ = repo.Create("testing 3");
-                _ = repo.Create("testing 4");
-                _ = repo.Create("testing 5");
-                _ = repo.Create("testing 6");
-
-                repo.UpdateStatusById(2, entities.TaskStatus.Done);
-                repo.UpdateStatusById(4, entities.TaskStatus.Done);
-                repo.UpdateStatusById(5, entities.TaskStatus.InProgress);
-                repo.UpdateStatusById(3, entities.TaskStatus.InProgress);
+                JsonTaskRepositoryImpl repo = new();
 
                 TaskCliApp app = new(repo);
 
