@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using TaskCli.entities;
+﻿using TaskCli.entities;
 using TaskCli.exceptions;
 using TaskCli.repositories;
 
