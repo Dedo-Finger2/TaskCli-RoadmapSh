@@ -1,4 +1,5 @@
-﻿using TaskCli.repositories;
+﻿using TaskCli.exceptions;
+using TaskCli.repositories;
 using TaskCli.utils;
 
 namespace TaskCli
@@ -13,6 +14,8 @@ namespace TaskCli
 
             try
             {
+                if (args.Length < 1) throw new NoCommandFoundException("no command found");
+
                 string command = args[0];
 
                 switch(command)
@@ -28,15 +31,19 @@ namespace TaskCli
                 }
 
             }
+            catch (NoCommandFoundException e)
+            {
+                Logger.Info(e, "user executed the cli without a command");
+                app.Help();
+            }
             catch (IndexOutOfRangeException e)
             {
-                app.Help();
+                Logger.Error(e, "something went wrong");
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
-            } 
-            
+                Logger.Error(e, "unkown exception happened");
+            }             
         }
     }
 }
