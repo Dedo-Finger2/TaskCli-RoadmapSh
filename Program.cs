@@ -31,6 +31,11 @@ namespace TaskCli
                 }
 
             }
+            catch (EmptyRequiredFieldException e)
+            {
+                Console.WriteLine(e.Message);
+                Logger.Warn(e, "it was expected a field but none was providen");
+            }
             catch (NoCommandFoundException e)
             {
                 Logger.Info(e, "user executed the cli without a command");
