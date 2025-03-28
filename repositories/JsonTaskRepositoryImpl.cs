@@ -16,7 +16,7 @@ namespace TaskCli.repositories
 
         private void CreateDatabase()
         {
-            File.WriteAllText("./database.json", "{ \n\t\"tasks\": [] \n}");
+            File.WriteAllText("./database.json", "{ \"tasks\": [] }");
         }
 
         private IEnumerable<string> GetDatabaseContentUsingLines()
@@ -55,6 +55,8 @@ namespace TaskCli.repositories
 
             string[] contentIdSplitted = content.Split("\"id\":");
 
+            if (contentIdSplitted.Length <= 1) return 0;
+
             List<string> ids = [];
 
             foreach (string line in contentIdSplitted)
@@ -83,11 +85,12 @@ namespace TaskCli.repositories
 
             string newJsonContent = content.Split("] }")[0];
 
-            newJsonContent += ",";
+            if (lastInsertedId > 0) newJsonContent += ",";
+
             newJsonContent += " {";
             newJsonContent += taskJsonObject;
             newJsonContent += " }";
-            newJsonContent += "] }";
+            newJsonContent += " ] }";
 
             File.WriteAllText("./database.json", newJsonContent);
 
