@@ -127,6 +127,8 @@ namespace TaskCli.utils
                 }
             } catch (IndexOutOfRangeException e)
             {
+                Logger.Info(e, "user used list command without a 'status'");
+
                 List<TaskEntity> tasks = repository.FindAll();
 
                 foreach (TaskEntity task in tasks)
